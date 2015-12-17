@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
+
 public class ChatClient {
 
     // Variáveis relacionadas com a interface gráfica --- * NÃO MODIFICAR *
