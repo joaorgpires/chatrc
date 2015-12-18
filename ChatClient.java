@@ -4,7 +4,8 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import java.nio.channels.*;
+import java.nio.charset.*;
 
 
 public class ChatClient {
@@ -18,7 +19,7 @@ public class ChatClient {
     // Se for necessário adicionar variáveis ao objecto ChatClient, devem
     // ser colocadas aqui
 
-
+    
 
     
     // Método a usar para acrescentar uma string à caixa de texto
@@ -44,16 +45,16 @@ public class ChatClient {
         chatArea.setEditable(false);
         chatBox.setEditable(true);
         chatBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    newMessage(chatBox.getText());
-                } catch (IOException ex) {
-                } finally {
-                   chatBox.setText("");
-                }
-            }
-        });
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		    try {
+			newMessage(chatBox.getText());
+		    } catch (IOException ex) {
+		    } finally {
+			chatBox.setText("");
+		    }
+		}
+	    });
         // --- Fim da inicialização da interface gráfica
 
         // Se for necessário adicionar código de inicialização ao
