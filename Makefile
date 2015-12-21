@@ -7,6 +7,7 @@ chat:
 	${JAVA} ChatUser.java
 	${JAVA} ChatRoom.java
 	${JAVA} ChatServer.java
+	${JAVA} ChatMessage.java
 
 clean:
 	${RM} *.class

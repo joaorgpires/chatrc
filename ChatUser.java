@@ -6,9 +6,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.nio.channels.*;
 import java.nio.charset.*;
+import java.util.regex.*;
 
-enum State {INIT, OUTSIDE, INSIDE}
-public class ChatUser {
+enum State {
+    INIT, OUTSIDE, INSIDE
+}
+
+public class ChatUser implements Comparable<ChatUser>{
     private String nick;
     private State userState;
     private SocketChannel sc;
@@ -21,9 +25,18 @@ public class ChatUser {
 	this.room = null;
     }
     
-    /*public int cmpTo(ChatUser b) {
-	return this.nick.compareTo(b.getNick());
-	}*/
+    @Override
+	public int compareTo(ChatUser other) {
+	return this.nick.compareTo(other.nick);
+    }
+    
+    public State getState() {
+	return this.userState;
+    }
+    
+    public void setState(State userState) {
+	this.userState = userState;
+    }
     
     public void joinRoom(ChatRoom room) {
 	this.room = room;
